@@ -1,7 +1,8 @@
 --- # Connection
+# ansible-playbook conditional.yaml
+# link: //docs.ansible.com/ansible/latest/collections/ansible/builtin/conditional_module.html
 - name: Install packages
   hosts: localhost
-  
   bacome: true
   become_method: sudo
   user: ec2-user
@@ -14,4 +15,3 @@
   - ben
   - john
   - lisa
-  
