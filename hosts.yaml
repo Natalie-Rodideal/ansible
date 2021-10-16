@@ -1,0 +1,9 @@
+ansible
+
+[webservers]
+IP addres
+IP addres
+
+[dbservers]
+IP addres
+IP addres
