@@ -9,12 +9,7 @@
     ansible.builtin.package:
       name: telnet
       state: present
-
-  - name: Upgrade kernel
-    ansible.builtin.package:
-      name: kernel
-      state: latest
-
+      
   - name: Upgrade All
     ansible.builtin.package:
       name: "*"
