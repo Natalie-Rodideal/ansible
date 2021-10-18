@@ -15,7 +15,4 @@
       name: kernel
       state: latest
 
-  - name: Upgrade All
-    ansible.builtin.package:
-      name: "*"
-      state: latest
+ 
