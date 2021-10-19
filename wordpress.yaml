@@ -4,14 +4,43 @@
   become: true
   become_method: sudo
   user: ec2-user
+  vars:
+    wordpress_version: "4.0.32"
+    php_version: "5.4.16"
+
   tasks:
-  - name: Install httpd prerequisites
+  - name: Install httpd and prerequisites
     when: { ansible_facts['distribution'] == "Amazon" or ansible_facts['distribution'] == "Centos"}
     package:
-      name: 
-  - name: Extract wordpress
-    when: { ansible_facts['distribution'] == "Amazon" or ansible_facts}
+      name: "{{ item }}"
+      state: present
+    with_items:
+    - httpd
+    - php-{{ php_version }}
+    - php_mysql-{{php_version}}
+    - wget
+    notify: 
+    - Start web server
+    php_version: "5.4.16"
 
-  - name: Extract wordpress
+  - name: Get Wordpress
+    when: { ansible_facts['distribution'] == "Amazon" or ansible_facts['distribution'] == "Centos"}
+    get_url:
+       url: https://wordpress.org/wordpress-{{ wordpress_version }}.tar.gz
+       dest: /tmp/wordpress-{{ wordpress_version }}.tar.gz
+       mode: '0440'
+      php_version: "5.4.16"
+
+  - name: Host Wordpress
+    when: { ansible_facts['distribution'] == "Amazon" or ansible_facts['distribution'] == "Centos"}
+    shell: "cp -r /var/www/htnl/wordpress/* /var/www/html/"
+    ignore_errors: true
+  
+  handlers:
+  - name: Start web server
   when: { ansible_facts['distribution'] == "Amazon" or ansible_facts['distribution'] == "Centos"}
+  system:
+    name: httpd
+    state: restarted
+    enabled: true
 
