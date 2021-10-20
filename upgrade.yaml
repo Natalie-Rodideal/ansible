@@ -5,8 +5,7 @@
   become_method: sudo 
   user: ec2-user
   tasks: 
- - name: Upgrade kernel
+  - name: Upgrade All
     ansible.builtin.package:
-      name: kernel
-      state: latest         #absent     #latest
- 
+      name: "*"
+      state: latest      #absent   #latest

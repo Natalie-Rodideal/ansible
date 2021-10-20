@@ -8,11 +8,20 @@
   - name: Install telnet
     ansible.builtin.package:
       name: telnet
-      state: present
+      state: present      #absent   #latest
 
   - name: Upgrade kernel
     ansible.builtin.package:
       name: kernel
-      state: latest
+      state: latest       #absent   #latest
+  
+  - name: Upgrade kernel
+    ansible.builtin.package:
+      name: "*"
+      state: latest       #absent   #latest
+
+
+  
+  
 
  

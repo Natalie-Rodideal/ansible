@@ -5,6 +5,7 @@
   become_method: sudo 
   user: ec2-user
   tasks: 
+
   - name: Install telnet 
     ansible.builtin.package:
       name: 
@@ -12,4 +13,4 @@
       - wget
       - elinks
       - unzip
-      state: absent            #present       #latest
+      state: present           #absent       #latest
