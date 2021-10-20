@@ -1,18 +1,14 @@
 --- # Connection
-# ansible-playbook get_url.yaml
+# ansible-playbook unarchive.yaml 
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html
-  - name: Add users
-  ansible.builten.user
-    name: "{{ item }}"
-    state: present
-  with_items:
-  - ben
-  - john
-  - lisa
 - name: Install packages
   hosts: localhost
-  bacome: true
-  become_method: sudo
+  become: true
+  become_method: sudo 
   user: ec2-user
-  tasks:
-  - 
+  tasks: 
+  - name: Extract wordpress
+    ansible.builtin.unarchive:
+      src: /tmp/wordpress.tar.gz
+      dest: /tmp/
+      remote_src: true
