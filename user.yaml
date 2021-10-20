@@ -24,7 +24,11 @@
   tasks:
   - name: Add users
     ansible.builten.user:
-    name: Johnd
-    comment: John Doe
+    name: 
+    - Johnd
+    - Bob 
+	  - ben 
+	  - lisa
+	  - katty
     state: present 
   
