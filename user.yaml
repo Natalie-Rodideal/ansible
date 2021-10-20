@@ -1,37 +1,19 @@
-# --- # Connection
-# - name: Install packages
-#   hosts: all
-#   bacome: true
-#   become_method: sudo
-#   user: ec2-user
-#   tasks:
-#   - name: Add users
-#   ansible.builtin.user:
-#     name: "{{ item }}"
-#     state: present
-#   with_items:
-#   - ben
-#   - john
-#   - lisa
-#   -
-  
 --- # Connection
-# ansible-playbook user.yaml
+# ansible-playbook user.yaml 
+# link: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html
 - name: Install packages
   hosts: localhost
   become: true
-  become_method: sudo
+  become_method: sudo 
   user: ec2-user
-  tasks:
+  tasks: 
   - name: Add users
     ansible.builtin.user:
       name: "{{ item }}"
       state: present
     with_items:
+    - ben
     - johnd
+    - lisa
     - bob
-	  - ben 
-	  - lisa
-	  - katty
-    
-  
+    - kety
