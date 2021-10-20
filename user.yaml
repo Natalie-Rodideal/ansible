@@ -18,7 +18,7 @@
 --- # Connection
 - name: Install packages
   hosts: localhost
-  bacome: true
+  become: true
   become_method: sudo
   user: ec2-user
   tasks:
