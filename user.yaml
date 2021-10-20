@@ -16,6 +16,7 @@
 #   -
   
 --- # Connection
+# ansible-playbook user.yaml
 - name: Install packages
   hosts: localhost
   become: true
@@ -26,8 +27,8 @@
     ansible.builtin.user:
       name: "{{ item }}"
       state: present
-    with_loops:
-    - Johnd
+    with_items:
+    - johnd
     - Bob
 	  - ben 
 	  - lisa
