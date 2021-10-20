@@ -1,3 +1,25 @@
+# --- # Connection
+# - name: Install packages
+#   hosts: localhost
+#   become: true
+#   become_method: sudo 
+#   user: ec2-user
+#   tasks: 
+#   - name: Install telnet
+#     ansible.builtin.package:
+#       name: telnet
+#       state: present      #absent   #latest
+
+#   - name: Upgrade kernel
+#     ansible.builtin.package:
+#       name: kernel
+#       state: latest       #absent   #latest
+  
+#   - name: Upgrade kernel
+#     ansible.builtin.package:
+#       name: "*"
+#       state: latest       #absent   #latest
+
 --- # Connection
 - name: Install packages
   hosts: localhost
@@ -5,20 +27,15 @@
   become_method: sudo 
   user: ec2-user
   tasks: 
-  - name: Install telnet
+  - name: Install packages
     ansible.builtin.package:
-      name: telnet
+      name: 
+      - telnet
+      - wget
+      - elinks
+      - unzip
       state: present      #absent   #latest
 
-  - name: Upgrade kernel
-    ansible.builtin.package:
-      name: kernel
-      state: latest       #absent   #latest
-  
-  - name: Upgrade kernel
-    ansible.builtin.package:
-      name: "*"
-      state: latest       #absent   #latest
 
 
   
