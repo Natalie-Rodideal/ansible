@@ -1,18 +1,31 @@
+# --- # Connection
+# - name: Install packages
+#   hosts: all
+#   bacome: true
+#   become_method: sudo
+#   user: ec2-user
+#   tasks:
+#   - name: Add users
+#   ansible.builten.user
+#     name: "{{ item }}"
+#     state: present
+#   with_items:
+#   - ben
+#   - john
+#   - lisa
+#   -
+  
 --- # Connection
 - name: Install packages
-  hosts: localhost
-  
+  hosts: all
   bacome: true
   become_method: sudo
   user: ec2-user
   tasks:
   - name: Add users
   ansible.builten.user
-    name: "{{ item }}"
-    state: present
-  with_items:
-  - ben
-  - john
-  - lisa
-  -
+    name: Johnd
+    comment: John Doe
+    uid: 1040
+    group: admin
   
