@@ -23,12 +23,14 @@
   user: ec2-user
   tasks:
   - name: Add users
-    ansible.builten.user:
-    name: 
+    ansible.builtin.user:
+      name: "{{ item }}"
+      state: present
+    with_loops:
     - Johnd
-    - Bob 
+    - Bob
 	  - ben 
 	  - lisa
 	  - katty
-    state: present 
+    
   
