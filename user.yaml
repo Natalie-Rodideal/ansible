@@ -17,13 +17,13 @@
   
 --- # Connection
 - name: Install packages
-  hosts: all
+  hosts: localhost
   bacome: true
   become_method: sudo
   user: ec2-user
   tasks:
   - name: Add users
-  ansible.builten.user
+    ansible.builten.user:
     name: Johnd
     comment: John Doe
     uid: 1040
