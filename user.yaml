@@ -6,7 +6,7 @@
 #   user: ec2-user
 #   tasks:
 #   - name: Add users
-#   ansible.builten.user
+#   ansible.builtin.user:
 #     name: "{{ item }}"
 #     state: present
 #   with_items:
@@ -29,7 +29,7 @@
       state: present
     with_items:
     - johnd
-    - Bob
+    - bob
 	  - ben 
 	  - lisa
 	  - katty
