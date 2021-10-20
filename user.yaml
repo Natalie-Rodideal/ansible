@@ -26,6 +26,5 @@
     ansible.builten.user:
     name: Johnd
     comment: John Doe
-    uid: 1040
-    group: admin
+    state: present 
   
