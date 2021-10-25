@@ -32,7 +32,7 @@
     community.aws.iam:
       iam_type: user
       name: "{{ item }}"
-      state: present
+      state: absent
       password: "3l6EUHxi2wL8XNR$$OUdJYES@wL#Fi6hCokl6IployJrJyRC7e"
       access_key_state: create
     loop:
