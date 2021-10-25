@@ -11,4 +11,4 @@
       cidr_block: "{{ vpc_cider_block }}"
       region: "{{ region }}"
       tags: "{{ aws_tags }}"
-      tenancy: default
+      tenancy: "{{ vpc_tenancy }}"
