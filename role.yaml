@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- name: Execute role
+  hosts: localhost
   become: yes
   become_method: sudo
   roles:
